@@ -49,11 +49,11 @@ Twitter.stream('statuses/filter', {track: '@edannunziata #D6'}, function(stream)
   });
 });
 //Rolling for a D10
-Twitter.stream('statuses/filter', {track: '@edannunziata #D10'}, function(stream) {
+Twitter.stream('statuses/filter', {track: '@edannunziata #D4'}, function(stream) {
   stream.on('data', function(tweet) {
     console.log(tweet.text);
     console.log("Rolled a 10 sided");
-	var answer = {status: "@"+tweet.user.screen_name+" you rolled a "+ getRandomIntInclusive(1,10)+"!",in_reply_to_status_id:tweet.id_str}
+	var answer = {status: "@"+tweet.user.screen_name+" you rolled a "+ getRandomIntInclusive(1,4)+"!",in_reply_to_status_id:tweet.id_str}
 	Twitter.post('statuses/update',answer,function(error,tweetReply,response)
 	{
 		if(error)
