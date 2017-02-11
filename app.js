@@ -2,10 +2,10 @@ var TwitterPackage = require('twitter');
 
 //Gonna have to change this one's to Ed's account
 var secret = {
-	consumer_key: 'DkUV2LDdEQvhxFDNn2wLhLRXT',
-	consumer_secret: 'gRLVXoRGcb0yyUtatR2yVxptPy7SML3eDOYh9tBRn2YkdLvOD1',
-	access_token_key: '35993442-X2jQw06rpToE3I0nAzFYcX1zLoef7VIXzxc37WAGe',
-	access_token_secret: 'ooXMRLp7aALLJXMU0seWEQ4zTclEhXtIzIsGTunIZGGc1'
+	consumer_key: 'zbYVEAAIB6Ns8bI6keKoYRHxr',
+	consumer_secret: 'yl3kwsGkSX3Pu4DfnUYpq7bT9kuowDJauKQLoVxEZN25LtqCFw',
+	access_token_key: '35993442-UBBFacONkTPmYBdVq074I4ox8XgMTz6ixvmyjmfur',
+	access_token_secret: '7pkOmgbEQ78fzxLGdhVRznZrzUuRXizl1306v23hUiEf0'
 }
 
 var Twitter = new TwitterPackage(secret);
@@ -14,7 +14,7 @@ var Twitter = new TwitterPackage(secret);
 Twitter.stream('statuses/filter', {track: '@edannunziata #D20'}, function(stream) {
   stream.on('data', function(tweet) {
     console.log(tweet.text);
-	var answer = {status: "@"+tweet.user.screen_name+" you rolled a "+ getRandomIntInclusive(1,20)}
+	var answer = {status: "@"+tweet.user.screen_name+" you rolled a "+ getRandomIntInclusive(1,20),in_reply_to_status_id:tweet.id_str}
 	Twitter.post('statuses/update',answer,function(error,tweetReply,response)
 	{
 		if(error)
@@ -30,10 +30,10 @@ Twitter.stream('statuses/filter', {track: '@edannunziata #D20'}, function(stream
   });
 });
 //Function to get a 6 roll
-Twitter.stream('statuses/filter', {track: '@edannunziata #D20'}, function(stream) {
+Twitter.stream('statuses/filter', {track: '@edannunziata #D6'}, function(stream) {
   stream.on('data', function(tweet) {
     console.log(tweet.text);
-	var answer = {status: "@"+tweet.user.screen_name+" you rolled a "+ getRandomIntInclusive(1,6)}
+	var answer = {status: "@"+tweet.user.screen_name+" you rolled a "+ getRandomIntInclusive(1,6),in_reply_to_status_id:tweet.id_str}
 	Twitter.post('statuses/update',answer,function(error,tweetReply,response)
 	{
 		if(error)
@@ -48,7 +48,44 @@ Twitter.stream('statuses/filter', {track: '@edannunziata #D20'}, function(stream
     console.log(error);
   });
 });
+//Rolling for a D10
+Twitter.stream('statuses/filter', {track: '@edannunziata #D10'}, function(stream) {
+  stream.on('data', function(tweet) {
+    console.log(tweet.text);
+	var answer = {status: "@"+tweet.user.screen_name+" you rolled a "+ getRandomIntInclusive(1,10),in_reply_to_status_id:tweet.id_str}
+	Twitter.post('statuses/update',answer,function(error,tweetReply,response)
+	{
+		if(error)
+		{
+			console.log(error);
+		}
+		console.log(tweetReply.text);
+	});
+  });
 
+  stream.on('error', function(error) {
+    console.log(error);
+  });
+});
+//Rolling for a D100
+Twitter.stream('statuses/filter', {track: '@edannunziata #D100'}, function(stream) {
+  stream.on('data', function(tweet) {
+    console.log(tweet.text);
+	var answer = {status: "@"+tweet.user.screen_name+" you rolled a "+ getRandomIntInclusive(1,100),in_reply_to_status_id:tweet.id_str}
+	Twitter.post('statuses/update',answer,function(error,tweetReply,response)
+	{
+		if(error)
+		{
+			console.log(error);
+		}
+		console.log(tweetReply.text);
+	});
+  });
+
+  stream.on('error', function(error) {
+    console.log(error);
+  });
+});
 function getRandomIntInclusive(min,max)
 {
 	min = Math.ceil(min);
