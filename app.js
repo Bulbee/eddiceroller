@@ -2,10 +2,10 @@ var TwitterPackage = require('twitter');
 
 //Gonna have to change this one's to Ed's account
 var secret = {
-	consumer_key: 'zbYVEAAIB6Ns8bI6keKoYRHxr',
-	consumer_secret: 'yl3kwsGkSX3Pu4DfnUYpq7bT9kuowDJauKQLoVxEZN25LtqCFw',
-	access_token_key: '35993442-UBBFacONkTPmYBdVq074I4ox8XgMTz6ixvmyjmfur',
-	access_token_secret: '7pkOmgbEQ78fzxLGdhVRznZrzUuRXizl1306v23hUiEf0'
+	consumer_key: '2qzs4BF0ihRoubvYuH9ZctDfk',
+	consumer_secret: 'iqQSlyUfTKvoR4R1a8Z9zZDLH7ctYltcm8D0mxXlHEVVtCPSYh',
+	access_token_key: '28757835-wHdmf8Q2L8G4uGwwlQJ0urFSLkyzm9CMvAnNX2PAR',
+	access_token_secret: 'ouu2C3NXk9d3XLGUKdFOwtcsxSf0aed9WWGY515wUoHN6'
 }
 
 var Twitter = new TwitterPackage(secret);
