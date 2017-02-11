@@ -2,10 +2,10 @@ var TwitterPackage = require('twitter');
 
 //Gonna have to change this one's to Ed's account
 var secret = {
-	consumer_key: '2qzs4BF0ihRoubvYuH9ZctDfk',
-	consumer_secret: 'iqQSlyUfTKvoR4R1a8Z9zZDLH7ctYltcm8D0mxXlHEVVtCPSYh',
-	access_token_key: '28757835-wHdmf8Q2L8G4uGwwlQJ0urFSLkyzm9CMvAnNX2PAR',
-	access_token_secret: 'ouu2C3NXk9d3XLGUKdFOwtcsxSf0aed9WWGY515wUoHN6'
+	consumer_key: 'x',
+	consumer_secret: 'x',
+	access_token_key: 'x',
+	access_token_secret: 'x'
 }
 
 var Twitter = new TwitterPackage(secret);
@@ -53,7 +53,7 @@ Twitter.stream('statuses/filter', {track: '@edannunziata #D4'}, function(stream)
   stream.on('data', function(tweet) {
     console.log(tweet.text);
     console.log("Rolled a 10 sided");
-	var answer = {status: "@"+tweet.user.screen_name+" you rolled a "+ getRandomIntInclusive(1,4)+"!",in_reply_to_status_id:tweet.id_str}
+	var answer = {status: "@"+tweet.user.screen_name+" you rolled a "+ getRandomIntInclusive(1,)+"!",in_reply_to_status_id:tweet.id_str}
 	Twitter.post('statuses/update',answer,function(error,tweetReply,response)
 	{
 		if(error)
