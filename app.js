@@ -14,7 +14,7 @@ var Twitter = new TwitterPackage(secret);
 Twitter.stream('statuses/filter', {track: '@edannunziata #D20'}, function(stream) {
   stream.on('data', function(tweet) {
     console.log(tweet.text);
-	var answer = {status: "@"+tweet.user.screen_name+" you rolled a "+ getRandomIntInclusive(1,20),in_reply_to_status_id:tweet.id_str}
+	var answer = {status: "@"+tweet.user.screen_name+" you rolled a "+ getRandomIntInclusive(1,20)+"!",in_reply_to_status_id:tweet.id_str}
 	Twitter.post('statuses/update',answer,function(error,tweetReply,response)
 	{
 		if(error)
@@ -33,7 +33,7 @@ Twitter.stream('statuses/filter', {track: '@edannunziata #D20'}, function(stream
 Twitter.stream('statuses/filter', {track: '@edannunziata #D6'}, function(stream) {
   stream.on('data', function(tweet) {
     console.log(tweet.text);
-	var answer = {status: "@"+tweet.user.screen_name+" you rolled a "+ getRandomIntInclusive(1,6),in_reply_to_status_id:tweet.id_str}
+	var answer = {status: "@"+tweet.user.screen_name+" you rolled a "+ getRandomIntInclusive(1,6)+"!",in_reply_to_status_id:tweet.id_str}
 	Twitter.post('statuses/update',answer,function(error,tweetReply,response)
 	{
 		if(error)
@@ -52,7 +52,7 @@ Twitter.stream('statuses/filter', {track: '@edannunziata #D6'}, function(stream)
 Twitter.stream('statuses/filter', {track: '@edannunziata #D10'}, function(stream) {
   stream.on('data', function(tweet) {
     console.log(tweet.text);
-	var answer = {status: "@"+tweet.user.screen_name+" you rolled a "+ getRandomIntInclusive(1,10),in_reply_to_status_id:tweet.id_str}
+	var answer = {status: "@"+tweet.user.screen_name+" you rolled a "+ getRandomIntInclusive(1,10)+"!",in_reply_to_status_id:tweet.id_str}
 	Twitter.post('statuses/update',answer,function(error,tweetReply,response)
 	{
 		if(error)
@@ -71,7 +71,7 @@ Twitter.stream('statuses/filter', {track: '@edannunziata #D10'}, function(stream
 Twitter.stream('statuses/filter', {track: '@edannunziata #D100'}, function(stream) {
   stream.on('data', function(tweet) {
     console.log(tweet.text);
-	var answer = {status: "@"+tweet.user.screen_name+" you rolled a "+ getRandomIntInclusive(1,100),in_reply_to_status_id:tweet.id_str}
+	var answer = {status: "@"+tweet.user.screen_name+" you rolled a "+ getRandomIntInclusive(1,100)+"!",in_reply_to_status_id:tweet.id_str}
 	Twitter.post('statuses/update',answer,function(error,tweetReply,response)
 	{
 		if(error)
